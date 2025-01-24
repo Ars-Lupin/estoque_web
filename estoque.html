@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque Digital da Igreja</title>
+
+    <!-- Ícone da aba (Favicon) -->
+    <link rel="icon" href="src/logo.png" type="image/png">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+          <!-- Logo e título -->
+          <div>
+            <img src="src/logo.png" alt="Logo da Igreja" class="logo">
+            <h1>Estoque Digital da Igreja</h1>
+          </div>
+          
+          <!-- Abas de navegação alinhadas à direita -->
+          <nav>
+            <button class="tab-button" data-tab="add-item">Adicionar Item</button>
+            <button class="tab-button" data-tab="view-stock">Estoque</button>
+            <button class="tab-button" data-tab="filters">Filtros</button>
+          </nav>
+        </div>
+      </header>
+
+    <main>
+        <!-- Adicionar Item -->
+        <section id="add-item" class="tab-section active">
+            <h2>Adicionar Item ao Estoque</h2>
+            <form id="inventory-form">
+                <label for="item-name">Nome do Item:</label>
+                <input type="text" id="item-name" placeholder="Ex: Bíblia, Cadeira" required>
+
+                <label for="quantity">Quantidade:</label>
+                <input type="number" id="quantity" min="1" placeholder="Ex: 10" required>
+
+                <label for="ministry">Ministério:</label>
+                <input type="text" id="ministry" placeholder="Ex: Jovens, Música" required>
+
+                <label for="condition">Condição:</label>
+                <input type="text" id="condition" placeholder="Ex: Ótimo estado, Danificado" required>
+
+                <button type="submit">Adicionar ao Estoque</button>
+            </form>
+        </section>
+
+        <!-- Estoque -->
+        <section id="view-stock" class="tab-section">
+            <h2>Itens no Estoque</h2>
+            <table id="inventory-table">
+                <thead>
+                    <tr>
+                        <th>Nome do Item</th>
+                        <th>Quantidade</th>
+                        <th>Ministério</th>
+                        <th>Condição</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Filtros -->
+        <section id="filters" class="tab-section">
+            <h2>Filtros</h2>
+            <label for="filter-ministry">Filtrar por Ministério:</label>
+            <input type="text" id="filter-ministry" placeholder="Ex: Jovens, Música">
+
+            <label for="search-item">Buscar por Nome do Item:</label>
+            <input type="text" id="search-item" placeholder="Ex: Bíblia, Microfone">
+
+            <button id="apply-filters">Aplicar Filtros</button>
+
+            <table id="filtered-results">
+                <thead>
+                    <tr>
+                        <th>Nome do Item</th>
+                        <th>Quantidade</th>
+                        <th>Ministério</th>
+                        <th>Condição</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
