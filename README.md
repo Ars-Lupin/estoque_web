@@ -1,4 +1,4 @@
-# Estoque Digital da Igreja
+# ⛪ Estoque Digital da Igreja
 
 Este projeto tem como objetivo criar um sistema de **estoque digital** para a igreja, permitindo o gerenciamento de itens de forma prática e eficiente. O sistema oferece funcionalidades para adicionar, editar, remover e buscar itens, além de associar cada item a um **ministério** e um **nível de conservação**.
 
