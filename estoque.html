@@ -15,20 +15,21 @@
 <body>
     <header>
         <div class="header-content">
-          <!-- Logo e título -->
-          <div>
-            <img src="src/logo.png" alt="Logo da Igreja" class="logo">
-            <h1>Estoque Digital da Igreja</h1>
-          </div>
-          
-          <!-- Abas de navegação alinhadas à direita -->
-          <nav>
-            <button class="tab-button" data-tab="add-item">Adicionar Item</button>
-            <button class="tab-button" data-tab="view-stock">Estoque</button>
-            <button class="tab-button" data-tab="filters">Filtros</button>
-          </nav>
+            <!-- Logo e título -->
+            <div>
+                <img src="src/logo.png" alt="Logo da Igreja" class="logo">
+                <h1>Estoque Digital da Igreja</h1>
+            </div>
+
+            <!-- Abas de navegação alinhadas à direita -->
+            <nav>
+                <button class="tab-button" data-tab="add-item">Adicionar Item</button>
+                <button class="tab-button" data-tab="view-stock">Estoque</button>
+                <button class="tab-button" data-tab="filters">Filtros</button>
+                <button class="tab-button" data-tab="ministries">Ministérios</button>
+            </nav>
         </div>
-      </header>
+    </header>
 
     <main>
         <!-- Adicionar Item -->
@@ -40,12 +41,19 @@
 
                 <label for="quantity">Quantidade:</label>
                 <input type="number" id="quantity" min="1" placeholder="Ex: 10" required>
-
                 <label for="ministry">Ministério:</label>
-                <input type="text" id="ministry" placeholder="Ex: Jovens, Música" required>
+                <select id="ministry" required>
+                    <option value="" disabled selected>Selecione um ministério</option>
+                </select>
+
 
                 <label for="condition">Condição:</label>
-                <input type="text" id="condition" placeholder="Ex: Ótimo estado, Danificado" required>
+                <select id="condition" required>
+                    <option value="Nova">Nova</option>
+                    <option value="Boas condições">Boas condições</option>
+                    <option value="Apresenta defeitos">Apresenta defeitos</option>
+                    <option value="Não funciona">Não funciona</option>
+                </select>
 
                 <button type="submit">Adicionar ao Estoque</button>
             </form>
@@ -73,12 +81,10 @@
         <section id="filters" class="tab-section">
             <h2>Filtros</h2>
             <label for="filter-ministry">Filtrar por Ministério:</label>
-            <input type="text" id="filter-ministry" placeholder="Ex: Jovens, Música">
+            <input type="text" id="filter-ministry" placeholder="Ex: Jovens, Música" oninput="filterInventory()">
 
             <label for="search-item">Buscar por Nome do Item:</label>
-            <input type="text" id="search-item" placeholder="Ex: Bíblia, Microfone">
-
-            <button id="apply-filters">Aplicar Filtros</button>
+            <input type="text" id="search-item" placeholder="Ex: Bíblia, Microfone" oninput="filterInventory()">
 
             <table id="filtered-results">
                 <thead>
@@ -94,7 +100,19 @@
                 </tbody>
             </table>
         </section>
-    </main>
+
+        <!-- Ministérios -->
+        <section id="ministries" class="tab-section">
+            <h2>Ministérios</h2>
+            <form id="add-ministry-form">
+                <input type="text" id="new-ministry" placeholder="Novo Ministério" required />
+                <button type="submit">Adicionar Ministério</button>
+            </form>
+        
+            <!-- Lista de ministérios como botões -->
+            <div id="ministries-list"></div>
+        </section>
+        </main>
     <script src="script.js"></script>
 </body>
 
